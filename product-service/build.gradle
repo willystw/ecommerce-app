@@ -1,0 +1,16 @@
+apply from: "${rootDir}/spring-boot.gradle"
+apply plugin: 'application'
+
+mainClassName = "com.ecommerce.project.service.ProductApplication"
+
+bootRun {
+    args += ["--server.port=10033"]
+}
+
+dependencies {
+    implementation project(":product-impl")
+    implementation project(":product-api")
+
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+
+}
