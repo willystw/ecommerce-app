@@ -1,0 +1,7 @@
+apply from: "${rootDir}/spring-boot.gradle"
+
+dependencies {
+    implementation project(":product-api")
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "org.postgresql:postgresql"
+}
