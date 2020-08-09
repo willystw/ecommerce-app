@@ -64,8 +64,7 @@ public class UserDataServiceImpl implements UserDataService {
     }
 
     @Override
-    public boolean login(String username, String password) {
-        User user = userDataRepository.getByUsername(username);
+    public boolean login(User user, String username, String password) {
         if (user != null) {
             String passHash = user.getPasswordHash();
             return passwordEncoder.matches(password, passHash);

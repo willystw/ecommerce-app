@@ -3,3 +3,4 @@ rootProject.name = 'project'
 
 include 'product-service', 'product-api', 'product-impl'
 include 'user-service', 'user-api', 'user-impl'
+include 'auth-api'

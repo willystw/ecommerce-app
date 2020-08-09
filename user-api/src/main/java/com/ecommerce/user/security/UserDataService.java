@@ -15,5 +15,5 @@ public interface UserDataService {
 
     void updateUser(Long id, String firstName, String lastName, UserGender gender, LocalDate dateOfBirth);
 
-    boolean login(String username, String password);
+    boolean login(User user, String username, String password);
 }

@@ -1,4 +1,4 @@
-package com.ecommerce.user.model;
+package com.ecommerce.auth;
 
 public abstract class APISessionKey {
     public static final String USERNAME = "username";

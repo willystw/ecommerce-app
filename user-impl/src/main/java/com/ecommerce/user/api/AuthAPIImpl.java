@@ -1,7 +1,7 @@
 package com.ecommerce.user.api;
 
+import com.ecommerce.auth.APISessionKey;
 import com.ecommerce.user.entity.User;
-import com.ecommerce.user.model.APISessionKey;
 import com.ecommerce.user.model.UserLoginFailedReason;
 import com.ecommerce.user.model.UserLoginRequest;
 import com.ecommerce.user.model.UserLoginResponse;
@@ -36,9 +36,8 @@ public class AuthAPIImpl implements AuthAPI {
         String username = request.getUsername();
         User existingUser = userDataService.getUserByUsername(username);
 
-        boolean successLogin = false;
+        boolean successLogin;
         if (existingUser == null) {
-            logger.info("Create new user for username " + username);
             //create new user
             userDataService.createNewUser(username, request.getPassword(), request.getDeviceInterface());
             existingUser = userDataService.getUserByUsername(username);
@@ -46,8 +45,7 @@ public class AuthAPIImpl implements AuthAPI {
             successLogin = true;
         } else {
             //login for existing user
-            logger.info("Login for username " + username);
-            successLogin = userDataService.login(username, request.getPassword());
+            successLogin = userDataService.login(existingUser, username, request.getPassword());
         }
 
         UserLoginResponse response = new UserLoginResponse();

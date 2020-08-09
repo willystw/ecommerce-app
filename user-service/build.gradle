@@ -10,6 +10,7 @@ mainClassName = "com.ecommerce.user.application.UserApplication"
 dependencies {
     implementation project(":user-api")
     implementation project(":user-impl")
+    implementation project(":auth-api")
 
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation "org.bouncycastle:bcprov-jdk15on:1.64"

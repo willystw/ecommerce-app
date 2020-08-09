@@ -2,6 +2,8 @@ apply from: "${rootDir}/spring-boot.gradle"
 
 dependencies {
     implementation project(":user-api")
+    implementation project(":auth-api")
+
     implementation "org.springframework.boot:spring-boot-starter-data-jpa"
     implementation "org.postgresql:postgresql"
     implementation 'org.springframework.boot:spring-boot-starter-security'
