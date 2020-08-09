@@ -1,7 +1,8 @@
 package com.ecommerce.user.api;
 
+import com.ecommerce.auth.APISessionKey;
+import com.ecommerce.auth.filter.UserAuthenticated;
 import com.ecommerce.user.entity.User;
-import com.ecommerce.user.model.APISessionKey;
 import com.ecommerce.user.model.UpdateUserRequest;
 import com.ecommerce.user.model.UpdateUserResponse;
 import com.ecommerce.user.model.ViewUserRequest;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+@UserAuthenticated
 public class UserAPIImpl implements UserAPI {
     @Autowired
     private UserDataService userDataService;
